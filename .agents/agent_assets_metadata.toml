@@ -1,0 +1,62 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "Z7_nDZ9U23dElfQpIooee"
+uri = "file://artifacts/amrithya/src/assets/hero.png"
+type = "image"
+title = "hero dome dining at night"
+
+[[generated]]
+id = "29c-YQClS_M0LjX38QZ2W"
+uri = "file://artifacts/amrithya/src/assets/about.png"
+type = "image"
+title = "about intimate two-top"
+
+[[generated]]
+id = "Pw-N9tJ6zMJM3NhQpxRCu"
+uri = "file://artifacts/amrithya/src/assets/exp-dome.png"
+type = "image"
+title = "dome dining twilight"
+
+[[generated]]
+id = "5z8CRdsJANNx__JZz6MCX"
+uri = "file://artifacts/amrithya/src/assets/exp-water.png"
+type = "image"
+title = "water-side dining table"
+
+[[generated]]
+id = "4XCyr1i2jNFcCfpj-QebA"
+uri = "file://artifacts/amrithya/src/assets/exp-romantic.png"
+type = "image"
+title = "romantic couple table"
+
+[[generated]]
+id = "s_OHoWCqquxD671xRy_JW"
+uri = "file://artifacts/amrithya/src/assets/exp-family.png"
+type = "image"
+title = "elegant family table"
+
+[[generated]]
+id = "5Q0CZQRF17ukkYwNYLjYQ"
+uri = "file://artifacts/amrithya/src/assets/exp-celebration.png"
+type = "image"
+title = "celebration table"
+
+[[generated]]
+id = "5egJ4UmPJfoOcqBzwc1aL"
+uri = "file://artifacts/amrithya/src/assets/events.png"
+type = "image"
+title = "private dining hall"
+
+[[generated]]
+id = "Ut3qc4IBK2iDP0B_bjSLL"
+uri = "file://artifacts/amrithya/src/assets/gallery-1.png"
+type = "image"
+title = "plated dish 1"
+
+[[generated]]
+id = "-DP_wiv--uagEF-o7Zx3a"
+uri = "file://artifacts/amrithya/src/assets/gallery-2.png"
+type = "image"
+title = "cocktail"

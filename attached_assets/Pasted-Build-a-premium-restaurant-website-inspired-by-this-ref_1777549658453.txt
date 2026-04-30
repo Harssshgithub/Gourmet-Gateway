@@ -1,0 +1,97 @@
+Build a premium restaurant website inspired by this reference website: https://hakkasan-mumbai.vercel.app/
+
+Create a luxury, modern, cinematic restaurant website for:
+
+Brand Name: Amrithya – The Eternal Dining by Brahmastra
+Business Type: Premium restaurant / café / experiential dining
+Location: Rajpur Road, Dehradun
+Brand Feel: Luxury, elegant, aesthetic, warm, premium, Instagrammable, fine-dining experience
+
+The website should feel like a high-end restaurant brand website, not a normal café website.
+
+Tech Stack:
+Use React + Vite + Tailwind CSS.
+Make the website fully responsive for mobile, tablet, and desktop.
+Use smooth animations, scroll effects, hover effects, and premium transitions.
+
+Website Sections:
+
+1. Hero Section
+- Full-screen cinematic hero
+- Large luxury headline:
+  “Amrithya – The Eternal Dining”
+- Subheading:
+  “A premium dining experience crafted around ambience, taste, and timeless moments.”
+- Buttons:
+  “Reserve a Table”
+  “Explore Menu”
+- Use dark background, golden accents, glassmorphism, elegant food/ambience visuals.
+
+2. About / Experience Section
+- Describe the restaurant as an experiential dining destination.
+- Highlight ambience, luxury seating, premium food, couple/family dining, celebrations.
+
+3. Signature Experience Section
+Create cards for:
+- Dome Dining
+- Water-side Ambience
+- Romantic Dinner
+- Family Dining
+- Birthday & Event Celebrations
+
+4. Menu Preview Section
+Create category tabs/cards:
+- Starters
+- Main Course
+- Mocktails
+- Desserts
+- Chef Specials
+Each card should show item name, short description, and price placeholder.
+
+5. Gallery Section
+Create a premium image grid with restaurant ambience, food, drinks, and events.
+Use hover zoom and dark overlay effects.
+
+6. Reservation Section
+Create a booking form with:
+- Name
+- Phone
+- Date
+- Time
+- Number of guests
+- Special request
+Add WhatsApp booking button.
+
+7. Events / Private Dining Section
+Promote birthday parties, private dinners, corporate gatherings, and celebrations.
+Add enquiry CTA.
+
+8. Testimonials Section
+Add 3-4 premium customer review cards.
+
+9. Contact Section
+Include:
+- Address
+- Phone
+- Opening hours
+- Google Maps embed placeholder
+- Instagram link placeholder
+
+10. Footer
+Luxury footer with brand name, quick links, contact, social icons.
+
+Design Requirements:
+- Dark luxury theme
+- Colors: deep black, charcoal, warm gold, ivory, amber
+- Typography: elegant serif headings and clean sans-serif body
+- Use rounded cards, soft shadows, glass effects
+- Add smooth scroll animations
+- Add subtle floating food/ambience elements
+- Make it look premium like a luxury hospitality brand.
+
+Important:
+- Do not make it generic.
+- Make it visually rich and conversion-focused.
+- The goal is to help the restaurant get more reservations, event bookings, and direct customer trust.
+- Use placeholder images from Unsplash/Pexels if needed.
+- Keep code clean and component-based.
