@@ -44,64 +44,93 @@ export function MenuPreview() {
   const [activeTab, setActiveTab] = useState("starters");
 
   return (
-    <section id="menu" className="py-24 md:py-32 border-t border-border/30 relative">
+    <section id="menu" className="py-32 md:py-40 border-t border-primary/15 relative bg-background">
       <div className="container mx-auto px-6 max-w-4xl">
-        <div className="text-center mb-16">
-          <span className="text-primary tracking-[0.2em] text-xs uppercase mb-4 block">
-            Culinary Art
-          </span>
-          <h2 className="font-serif text-4xl md:text-5xl text-foreground">
+        <div className="flex flex-col items-center text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20%" }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="flex items-center gap-4 mb-6"
+          >
+            <div className="w-8 border-t border-primary/15" />
+            <span className="text-primary tracking-[0.25em] text-[11px] uppercase font-medium">
+              CULINARY ART
+            </span>
+            <div className="w-8 border-t border-primary/15" />
+          </motion.div>
+          
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20%" }}
+            transition={{ duration: 0.9, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="font-serif text-5xl lg:text-6xl text-foreground tracking-[-0.02em]"
+          >
             A Taste of Eternity
-          </h2>
+          </motion.h2>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-20%" }}
+          transition={{ duration: 0.9, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-wrap justify-center gap-8 mb-20"
+        >
           {menuCategories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`px-6 py-2 text-sm tracking-widest uppercase transition-all duration-300 border-b-2 ${
-                activeTab === cat.id 
-                  ? "text-primary border-primary" 
-                  : "text-foreground/50 border-transparent hover:text-foreground"
-              }`}
+              className="relative py-2 text-[11px] tracking-[0.2em] uppercase transition-colors duration-500 text-foreground/60 hover:text-foreground"
             >
-              {cat.label}
+              <span className={`relative z-10 ${activeTab === cat.id ? "text-primary" : ""}`}>
+                {cat.label}
+              </span>
+              {activeTab === cat.id && (
+                <motion.div
+                  layoutId="activeTabIndicator"
+                  className="absolute bottom-0 left-0 right-0 h-[1px] bg-primary"
+                  initial={false}
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         <div className="relative min-h-[400px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4 }}
-              className="space-y-8"
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="space-y-0"
             >
               {menuItems[activeTab].map((item, idx) => (
-                <div key={idx} className="group flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-                  <div className="flex-1">
+                <div key={idx} className="group py-6 border-b border-primary/10 last:border-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                  <div className="flex-shrink-0 max-w-[280px] sm:max-w-none">
                     <div className="flex items-center gap-4 mb-1">
-                      <h3 className="font-serif text-xl text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="font-serif text-2xl text-foreground group-hover:text-primary transition-colors duration-500">
                         {item.name}
                       </h3>
                       {item.isChefPick && (
-                        <span className="text-[10px] uppercase tracking-wider bg-primary/10 text-primary px-2 py-0.5 border border-primary/20 rounded-sm">
+                        <span className="text-[9px] uppercase tracking-[0.2em] text-primary px-2 py-0.5 border border-primary/30 rounded-full shrink-0">
                           Chef's Pick
                         </span>
                       )}
                     </div>
-                    <p className="text-foreground/60 font-light text-sm">
+                    <p className="text-foreground/60 font-light text-sm italic font-serif">
                       {item.desc}
                     </p>
                   </div>
                   
-                  <div className="hidden sm:block flex-1 border-b border-dotted border-border/50 mx-4 mb-2 opacity-50 group-hover:opacity-100 transition-opacity" />
+                  <div className="hidden sm:block flex-1 border-b border-dotted border-primary/20 mx-6 mb-2 opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
                   
-                  <div className="text-primary font-medium tracking-wider">
+                  <div className="text-primary font-medium tracking-[0.1em] text-lg font-serif shrink-0">
                     ₹{item.price}
                   </div>
                 </div>

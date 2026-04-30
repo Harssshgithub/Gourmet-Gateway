@@ -25,34 +25,53 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-card/30 relative border-t border-border/30">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-primary tracking-[0.2em] text-xs uppercase mb-4 block">
-            Words of Guests
-          </span>
-          <h2 className="font-serif text-4xl text-foreground">
+    <section className="py-32 md:py-40 bg-background relative border-t border-primary/15">
+      <div className="container mx-auto px-6 max-w-5xl">
+        <div className="flex flex-col items-center text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20%" }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="flex items-center gap-4 mb-6"
+          >
+            <div className="w-8 border-t border-primary/15" />
+            <span className="text-primary tracking-[0.25em] text-[11px] uppercase font-medium">
+              WORDS OF GUESTS
+            </span>
+            <div className="w-8 border-t border-primary/15" />
+          </motion.div>
+          
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20%" }}
+            transition={{ duration: 0.9, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="font-serif text-5xl lg:text-6xl text-foreground tracking-[-0.02em]"
+          >
             Moments Relived
-          </h2>
+          </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="p-8 border border-border/50 bg-background relative"
+              viewport={{ once: true, margin: "-20%" }}
+              transition={{ duration: 0.9, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col relative"
             >
-              <div className="text-primary/40 font-serif text-6xl absolute top-4 left-6 leading-none">"</div>
-              <p className="font-serif text-lg md:text-xl text-foreground/90 leading-relaxed mb-6 relative z-10 pt-4">
+              <div className="text-primary font-serif text-6xl leading-none mb-4">"</div>
+              <p className="font-serif text-xl md:text-2xl text-foreground/90 leading-[1.6] mb-10 italic font-light">
                 {t.quote}
               </p>
-              <div className="border-t border-border/50 pt-4">
-                <p className="text-primary text-sm tracking-wide font-medium uppercase">{t.name}</p>
-                <p className="text-foreground/50 text-xs font-light">{t.occasion}</p>
+              
+              <div className="mt-auto">
+                <div className="w-16 h-[1px] bg-primary/20 mb-6" />
+                <p className="text-primary text-[11px] tracking-[0.25em] uppercase font-medium mb-1">{t.name}</p>
+                <p className="text-foreground/50 text-[10px] tracking-[0.1em] uppercase font-light">{t.occasion}</p>
               </div>
             </motion.div>
           ))}

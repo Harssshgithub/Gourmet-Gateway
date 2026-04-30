@@ -1,0 +1,121 @@
+Upgrade the existing website with premium 3D motion, cinematic animations, and high-end UI improvements.
+
+IMPORTANT:
+The website should NOT look like a generic AI-generated or “vibe-coded” website.
+Avoid:
+- Random animations with no purpose
+- Overuse of gradients
+- Generic UI blocks
+- Template-like layouts
+- Overcrowded effects
+- Cheap glassmorphism everywhere
+
+Instead, focus on:
+- Clean, intentional design
+- Strong layout hierarchy
+- Premium spacing and alignment
+- Minimal but meaningful animations
+- Real luxury brand feel (like high-end hotel or fine-dining websites)
+
+Project:
+Amrithya – The Eternal Dining by Brahmastra
+
+Goal:
+Create a cinematic, immersive restaurant website that feels like a real luxury brand experience and converts visitors into reservations.
+
+---
+
+🎬 Visual Direction:
+- Dark luxury theme with controlled lighting
+- Gold accents used subtly (not overpowering)
+- Soft reflections and ambient glow
+- Inspired by premium hospitality brands (not flashy UI kits)
+- High-quality composition and balance
+
+---
+
+🎥 Motion & Interaction:
+- Smooth scroll-based storytelling (no jittery effects)
+- Subtle parallax depth in hero section
+- Very light floating particles (barely noticeable)
+- Elegant fade/slide transitions between sections
+- Micro-interactions on buttons and cards
+- Menu cards with refined hover effects (no gimmicks)
+- Gallery with controlled 3D tilt (minimal, smooth)
+
+Avoid:
+- Over-animated elements
+- Fast or distracting motion
+- “Gaming-style” 3D effects
+
+---
+
+🧠 UX Focus:
+- Clear user journey:
+  Hero → Experience → Menu → Gallery → Reservation
+- Strong CTA visibility (Reserve Table)
+- Clean navigation
+- Fast-loading experience
+
+---
+
+🎯 Hero Section:
+- Cinematic feel (like a luxury brand landing page)
+- Subtle motion (slow zoom or light parallax)
+- Headline:
+  “Amrithya – The Eternal Dining”
+- Subheadline:
+  “Where ambience, flavour, and timeless moments come together.”
+- CTA buttons:
+  Reserve a Table / Explore Menu
+
+---
+
+📦 Sections to Enhance:
+- Experience section (premium storytelling layout)
+- Signature spaces (clean card/grid design)
+- Menu preview (structured and readable)
+- Gallery (high-end aesthetic layout)
+- Reservation form (minimal, elegant, trustworthy)
+- Testimonials (clean and believable)
+- Contact section (clear and functional)
+
+---
+
+🎨 Design System:
+- Colors:
+  Deep Black (#0B0B0B)
+  Charcoal (#1A1A1A)
+  Antique Gold (#C9A14A)
+  Warm Amber (#D6A85A)
+  Ivory (#F5F2EB)
+
+- Typography:
+  Elegant serif for headings (luxury feel)
+  Clean sans-serif for body
+
+- Layout:
+  Grid-based
+  Consistent spacing
+  No clutter
+
+---
+
+⚙️ Tech & Implementation:
+- Use React + Tailwind
+- Use Framer Motion for subtle animations
+- Optional: React Three Fiber ONLY if it enhances experience (keep it light)
+- Prioritize performance and smoothness
+
+---
+
+🚀 Final Outcome:
+The website should feel like:
+- A real premium restaurant brand
+- A high-end hospitality experience
+- Designed by a professional agency
+
+NOT like:
+- A template
+- A beginner project
+- A generic AI-generated “cool looking” site
