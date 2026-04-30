@@ -32,7 +32,7 @@ export function Nav() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-background/95 backdrop-blur-sm border-b border-primary/15 py-4" : "bg-transparent py-6"
+        scrolled ? "bg-background/95 border-b border-primary/15 py-4" : "bg-transparent py-6"
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
@@ -50,17 +50,16 @@ export function Nav() {
             <button
               key={link.id}
               onClick={() => handleNav(link.id)}
-              className="text-[11px] uppercase tracking-[0.2em] text-foreground/75 hover:text-primary transition-colors duration-500"
+              className="text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-500"
             >
               {link.label}
             </button>
           ))}
           <button
             onClick={() => handleNav("reserve")}
-            className="group relative overflow-hidden text-[11px] uppercase tracking-[0.2em] text-background bg-primary px-8 py-3 rounded-sm font-medium transition-colors duration-500"
+            className="group relative overflow-hidden text-[11px] uppercase tracking-[0.2em] text-background bg-primary px-8 py-3 rounded-[2px] font-medium transition-colors duration-500 hover:bg-primary/90"
           >
             <span className="relative z-10">Reserve</span>
-            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-[shimmer_1.2s_ease-out]" />
           </button>
         </div>
 
