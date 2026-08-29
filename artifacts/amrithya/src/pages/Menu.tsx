@@ -12,6 +12,7 @@ export default function Menu() {
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     document.title = "Menu — Amrithya | The Eternal Dining";
     const description = "Explore Amrithya's seasonal menu and filter dishes by dietary preferences, ingredients, and chef signatures.";
     let meta = document.querySelector('meta[name="description"]');

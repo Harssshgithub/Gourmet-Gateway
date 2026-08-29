@@ -66,6 +66,7 @@ export function Nav() {
               key={link.id}
               href="/menu"
               data-testid="link-nav-menu"
+              onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "auto" })}
               className="text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-500"
             >
               {link.label}
@@ -108,7 +109,10 @@ export function Nav() {
                     key={link.id}
                     href="/menu"
                     data-testid="link-mobile-nav-menu"
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                      setOpen(false);
+                      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+                    }}
                     className="font-serif text-2xl tracking-wide text-foreground/80 hover:text-primary transition-colors text-left"
                   >
                     {link.label}
