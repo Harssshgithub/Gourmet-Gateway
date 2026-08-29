@@ -36,11 +36,12 @@ export function Nav() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-background/95 border-b border-primary/15 py-4" : "bg-transparent py-6"
+      aria-label="Main navigation"
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,border-color,padding] duration-500 ${
+        scrolled ? "border-primary/15 bg-background/95 py-4" : "border-transparent bg-transparent py-7"
       }`}
     >
-        <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10 lg:px-16">
         <Link
           href="/"
           aria-label="Amrithya home"
@@ -50,21 +51,21 @@ export function Nav() {
               scrollToId("top");
             }
           }}
-          className="flex flex-col"
+          className="flex flex-col leading-none"
         >
-          <span className="font-serif text-2xl lg:text-3xl tracking-wide text-foreground">
+          <span className="font-serif text-3xl font-normal tracking-[0.02em] text-foreground lg:text-[2.15rem]">
             Amrithya
           </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden items-center gap-8 md:flex lg:gap-10">
           {navLinks.map((link) => link.id === "menu" ? (
             <Link
               key={link.id}
               href="/menu"
               data-testid="link-nav-menu"
               onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "auto" })}
-              className="text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-500"
+              className="text-[10px] uppercase tracking-[0.24em] text-foreground/70 transition-colors duration-500 hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -74,14 +75,14 @@ export function Nav() {
               type="button"
               data-testid={`button-nav-${link.id}`}
               onClick={() => handleNav(link.id)}
-              className="text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-500"
+              className="text-[10px] uppercase tracking-[0.24em] text-foreground/70 transition-colors duration-500 hover:text-foreground"
             >
               {link.label}
             </button>
           ))}
           <button
             onClick={() => handleNav("reserve")}
-            className="group relative overflow-hidden text-[11px] uppercase tracking-[0.2em] text-background bg-primary px-8 py-3 rounded-[2px] font-medium transition-colors duration-500 hover:bg-primary/90"
+            className="group relative overflow-hidden rounded-[2px] bg-primary px-7 py-3.5 text-[10px] font-medium uppercase tracking-[0.24em] text-background transition-colors duration-500 hover:bg-primary/90"
           >
             <span className="relative z-10">Reserve</span>
           </button>
