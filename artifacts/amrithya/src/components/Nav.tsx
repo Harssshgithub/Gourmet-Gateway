@@ -52,9 +52,6 @@ export function Nav() {
           }}
           className="flex flex-col"
         >
-          <span className="text-[10px] tracking-[0.25em] text-primary font-medium uppercase mb-0.5">
-            The Eternal Dining
-          </span>
           <span className="font-serif text-2xl lg:text-3xl tracking-wide text-foreground">
             Amrithya
           </span>
