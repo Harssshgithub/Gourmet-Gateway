@@ -41,7 +41,7 @@ export function Nav() {
         scrolled ? "border-primary/15 bg-background/95 py-4" : "border-transparent bg-transparent py-7"
       }`}
     >
-      <div className="container mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10 lg:px-16">
+      <div className="container mx-auto flex w-full items-center justify-between px-6 md:px-8 lg:px-12">
         <Link
           href="/"
           aria-label="Amrithya home"
@@ -53,7 +53,7 @@ export function Nav() {
           }}
           className="flex flex-col leading-none"
         >
-          <span className="font-serif text-3xl font-normal tracking-[0.02em] text-foreground lg:text-[2.15rem]">
+          <span className="font-serif text-3xl font-normal tracking-[0.02em] text-foreground lg:text-[2.2rem]">
             Amrithya
           </span>
         </Link>
@@ -65,7 +65,7 @@ export function Nav() {
               href="/menu"
               data-testid="link-nav-menu"
               onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "auto" })}
-              className="text-[10px] uppercase tracking-[0.24em] text-foreground/70 transition-colors duration-500 hover:text-foreground"
+              className="text-[12px] uppercase tracking-[0.2em] text-foreground/70 transition-colors duration-500 hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -75,14 +75,14 @@ export function Nav() {
               type="button"
               data-testid={`button-nav-${link.id}`}
               onClick={() => handleNav(link.id)}
-              className="text-[10px] uppercase tracking-[0.24em] text-foreground/70 transition-colors duration-500 hover:text-foreground"
+              className="text-[12px] uppercase tracking-[0.2em] text-foreground/70 transition-colors duration-500 hover:text-foreground"
             >
               {link.label}
             </button>
           ))}
           <button
             onClick={() => handleNav("reserve")}
-            className="group relative overflow-hidden rounded-[2px] bg-primary px-7 py-3.5 text-[10px] font-medium uppercase tracking-[0.24em] text-background transition-colors duration-500 hover:bg-primary/90"
+            className="group relative overflow-hidden rounded-[2px] bg-primary px-7 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] text-background transition-colors duration-500 hover:bg-primary/90"
           >
             <span className="relative z-10">Reserve</span>
           </button>
