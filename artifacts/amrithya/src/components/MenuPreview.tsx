@@ -1,49 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-
-const menuCategories = [
-  { id: "starters", label: "Starters" },
-  { id: "mains", label: "Main Course" },
-  { id: "mocktails", label: "Mocktails" },
-  { id: "desserts", label: "Desserts" },
-  { id: "specials", label: "Chef Specials" },
-];
-
-const menuItems: Record<string, { name: string; desc: string; price: string; isChefPick?: boolean }[]> = {
-  starters: [
-    { name: "Smoked Burrata", desc: "Saffron honey, black pepper tuile, micro greens", price: "780" },
-    { name: "Truffle Edamame Dim Sum", desc: "Hand-folded crystal wrapper, white truffle oil", price: "650" },
-    { name: "Charred Asparagus Tikka", desc: "Creamy cashew marinade, mint, charcoal dust", price: "620" },
-    { name: "Lotus Stem Crisp", desc: "Honey-chili glaze, toasted sesame, spring onion", price: "550" },
-  ],
-  mains: [
-    { name: "Saffron Kofta Curry", desc: "Cottage cheese dumplings, rich cashew gravy, edible gold", price: "850", isChefPick: true },
-    { name: "Wild Mushroom Risotto", desc: "Arborio rice, porcini dust, aged parmesan", price: "920" },
-    { name: "Pan-Seared Sea Bass", desc: "Lemon butter emulsion, crushed baby potatoes, asparagus", price: "1250" },
-    { name: "Black Garlic Udon", desc: "Hand-pulled noodles, black garlic soy, shiitake", price: "880" },
-  ],
-  mocktails: [
-    { name: "The Golden Hour", desc: "Smoked orange, rosemary syrup, ginger ale", price: "450" },
-    { name: "Midnight Rose", desc: "Rose petal extract, lychee, activated charcoal", price: "420" },
-    { name: "Amrithya Elixir", desc: "Clarified green apple, elderflower, gold leaf", price: "480" },
-    { name: "Citrus Basil Smash", desc: "Fresh basil, yuzu juice, sparkling water", price: "380" },
-  ],
-  desserts: [
-    { name: "24K Chocolate Dome", desc: "Dark chocolate mousse, hazelnut praline, gold dust", price: "850" },
-    { name: "Rose & Pistachio Tres Leches", desc: "Layered sponge, pistachio cream, dried rose", price: "750" },
-    { name: "Saffron Panna Cotta", desc: "Milk sponge, saffron infusion, almond brittle", price: "680" },
-    { name: "Classic Tiramisu", desc: "Coffee soaked sponge, mascarpone, cocoa dust", price: "620" },
-  ],
-  specials: [
-    { name: "Chef's Tasting Platter", desc: "A curated journey through our signature flavors", price: "2400" },
-    { name: "Lobster Thermidor", desc: "Classic french style, gruyere crust, herb salad", price: "1850" },
-    { name: "Tandoori Artichoke", desc: "Imported artichoke hearts, mustard marination", price: "950" },
-    { name: "Wagyu Beef Filet", desc: "Truffle mash, glazed carrots, red wine jus", price: "3200" },
-  ]
-};
+import { menuCategories, menuItems, type MenuCategoryId } from "@/data/menu";
 
 export function MenuPreview() {
-  const [activeTab, setActiveTab] = useState("starters");
+  const [activeTab, setActiveTab] = useState<MenuCategoryId>("starters");
 
   return (
     <section id="menu" className="py-24 lg:py-48 relative bg-background">
@@ -83,6 +43,8 @@ export function MenuPreview() {
           {menuCategories.map((cat) => (
             <button
               key={cat.id}
+              type="button"
+              data-testid={`button-preview-category-${cat.id}`}
               onClick={() => setActiveTab(cat.id)}
               className="relative py-2 text-[11px] tracking-[0.2em] uppercase transition-colors duration-[0.7s] text-foreground/60 hover:text-foreground"
             >
@@ -103,27 +65,27 @@ export function MenuPreview() {
 
         <div className="max-w-4xl mx-auto min-h-[400px]">
           <div className="space-y-0">
-            {menuItems[activeTab].map((item, idx) => (
-              <div key={idx} className="group py-6 border-b border-primary/10 last:border-0 flex flex-col md:flex-row md:items-baseline justify-between gap-4">
+            {menuItems.filter((item) => item.category === activeTab).map((item) => (
+              <div key={item.id} data-testid={`menu-preview-item-${item.id}`} className="group py-6 border-b border-primary/10 last:border-0 flex flex-col md:flex-row md:items-baseline justify-between gap-4">
                 <div className="flex-shrink-0 md:max-w-[400px]">
                   <div className="flex items-center gap-4 mb-2">
-                    <h3 className="font-serif text-2xl md:text-3xl text-foreground transition-colors duration-[0.7s]">
+                    <h3 data-testid={`text-preview-dish-${item.id}`} className="font-serif text-2xl md:text-3xl text-foreground transition-colors duration-[0.7s]">
                       {item.name}
                     </h3>
-                    {item.isChefPick && (
+                    {item.tags.includes("Chef's Signature") && (
                       <span className="text-[9px] uppercase tracking-[0.2em] text-primary/70">
                         Chef's Pick
                       </span>
                     )}
                   </div>
-                  <p className="text-foreground/70 font-light text-sm md:text-base leading-[1.6]">
+                  <p data-testid={`text-preview-description-${item.id}`} className="text-foreground/70 font-light text-sm md:text-base leading-[1.6]">
                     {item.desc}
                   </p>
                 </div>
                 
                 <div className="hidden md:block flex-1 border-b border-dotted border-primary/20 mx-8 mb-2 opacity-50" />
                 
-                <div className="text-primary font-medium tracking-[0.1em] text-lg md:text-xl font-serif shrink-0">
+                <div data-testid={`text-preview-price-${item.id}`} className="text-primary font-medium tracking-[0.1em] text-lg md:text-xl font-serif shrink-0">
                   ₹{item.price}
                 </div>
               </div>

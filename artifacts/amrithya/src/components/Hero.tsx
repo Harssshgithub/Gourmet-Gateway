@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "wouter";
 import { scrollToId } from "@/lib/scroll";
 import heroImg from "@/assets/hero.png";
 
@@ -10,8 +11,6 @@ export function Hero() {
     <section id="top" className="relative w-full h-[100dvh] flex items-center justify-center overflow-hidden bg-background">
       <motion.div style={{ y }} className="absolute inset-0 z-0 w-full h-[110%] -top-[5%]">
         <motion.img
-          animate={{ scale: [1, 1.04] }}
-          transition={{ duration: 30, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
           src={heroImg}
           alt="Amrithya Dining Room"
           className="w-full h-full object-cover origin-center"
@@ -63,12 +62,13 @@ export function Hero() {
           >
             Reserve a Table
           </button>
-          <button
-            onClick={() => scrollToId("menu")}
+          <Link
+            href="/menu"
+            data-testid="link-explore-menu"
             className="w-full sm:w-auto px-10 py-4 border border-primary/20 text-foreground uppercase tracking-[0.2em] text-[11px] font-medium hover:border-primary hover:text-primary transition-colors duration-500 rounded-[2px]"
           >
             Explore Menu
-          </button>
+          </Link>
         </motion.div>
       </div>
 

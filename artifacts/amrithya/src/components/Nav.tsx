@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "wouter";
+import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { scrollToId } from "@/lib/scroll";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [location, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -17,6 +17,11 @@ export function Nav() {
 
   const handleNav = (id: string) => {
     setOpen(false);
+    if (location !== "/") {
+      setLocation("/");
+      setTimeout(() => scrollToId(id), 150);
+      return;
+    }
     setTimeout(() => scrollToId(id), 100);
   };
 
@@ -35,20 +40,41 @@ export function Nav() {
         scrolled ? "bg-background/95 border-b border-primary/15 py-4" : "bg-transparent py-6"
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        <div className="flex flex-col cursor-pointer" onClick={() => scrollToId("top")}>
+        <div className="container mx-auto px-6 flex items-center justify-between">
+        <Link
+          href="/"
+          aria-label="Amrithya home"
+          onClick={(event) => {
+            if (location === "/") {
+              event.preventDefault();
+              scrollToId("top");
+            }
+          }}
+          className="flex flex-col"
+        >
           <span className="text-[10px] tracking-[0.25em] text-primary font-medium uppercase mb-0.5">
             The Eternal Dining
           </span>
           <span className="font-serif text-2xl lg:text-3xl tracking-wide text-foreground">
             Amrithya
           </span>
-        </div>
+        </Link>
 
         <div className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
+          {navLinks.map((link) => link.id === "menu" ? (
+            <Link
+              key={link.id}
+              href="/menu"
+              data-testid="link-nav-menu"
+              className="text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-500"
+            >
+              {link.label}
+            </Link>
+          ) : (
             <button
               key={link.id}
+              type="button"
+              data-testid={`button-nav-${link.id}`}
               onClick={() => handleNav(link.id)}
               className="text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-500"
             >
@@ -66,15 +92,32 @@ export function Nav() {
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <button className="text-foreground hover:text-primary transition-colors p-2">
+              <button
+                type="button"
+                aria-label="Open navigation"
+                data-testid="button-open-navigation"
+                className="text-foreground hover:text-primary transition-colors p-2"
+              >
                 <Menu className="w-6 h-6" strokeWidth={1.5} />
               </button>
             </SheetTrigger>
             <SheetContent side="right" className="w-full sm:w-[400px] bg-background border-l border-primary/15 flex flex-col pt-24 px-10">
               <div className="flex flex-col gap-10">
-                {navLinks.map((link) => (
+                {navLinks.map((link) => link.id === "menu" ? (
+                  <Link
+                    key={link.id}
+                    href="/menu"
+                    data-testid="link-mobile-nav-menu"
+                    onClick={() => setOpen(false)}
+                    className="font-serif text-2xl tracking-wide text-foreground/80 hover:text-primary transition-colors text-left"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
                   <button
                     key={link.id}
+                    type="button"
+                    data-testid={`button-mobile-nav-${link.id}`}
                     onClick={() => handleNav(link.id)}
                     className="font-serif text-2xl tracking-wide text-foreground/80 hover:text-primary transition-colors text-left"
                   >
